@@ -4,116 +4,166 @@
 
 <head>
 
-<meta charset="utf-8">
+	<meta charset="utf-8">
 
-<title>逸康网</title>
+	<title>逸康网</title>
 
-<link rel="stylesheet" href="css/jquery.fullPage.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
 
-<style>
 
-.section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
 
-.section2 p { position: relative; left: -120%;}
+	<script src="js/jquery-1.8.3.min.js"></script>
 
-.section3 p { position: relative; bottom: -120%;}
+	<script src="js/fullpage/jquery-ui-1.10.3.min.js"></script>
 
-.section4 p { display: none;}
+	<script src="js/fullpage/jquery.fullPage.min.js"></script>
+	<script src="js/swiper/swiper.min.js"></script>
 
-/*菜单*/
+	<script>
 
-#menu { margin: 0; padding: 0; position: fixed; right: 10px; top: 45%; list-style-type: none; z-index: 70;display: flex; flex-direction: column;}
+		$(document).ready(function() {
 
-#menu li { float: left; margin:  0 10px 0 0; font-size: 14px;}
+			$.fn.fullpage({
 
-#menu a { float: left; padding: 10px 20px; background-color: #fff; color: #333; text-decoration: none;}
+				slidesColor: ['#fff', '#4BBFC3', '#7BAABE', '#f90', '#ef820'],
 
-#menu .active a { color: #fff; background-color: #333;}
+				anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
+				menu: '.menu',
 
-.section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+				afterLoad: function(anchorLink, index){
+					if(index == 1){
 
-</style>
+						$('.section1').find('.footer').delay(100).animate({
 
-<script src="js/jquery-1.8.3.min.js"></script>
+							bottom: '0'
 
-<script src="js/fullpage/jquery-ui-1.10.3.min.js"></script>
+						}, 1500, 'easeOutExpo');
 
-<script src="js/fullpage/jquery.fullPage.min.js"></script>
+					}
 
-<script>
+					if(index == 2){
 
-$(document).ready(function() {
+						/*$('.section2').find('p').delay(100).animate({
 
-	$.fn.fullpage({
+							left: '0'
 
-		slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90', '#ef820'],
+						}, 1500, 'easeOutExpo');*/
+						$('.section2').find('.swiper-container2').fadeIn(2000);
+						var swiper = new Swiper('.swiper-container2', {
+							slidesPerView: 3,
+							spaceBetween: 30,
+							loop:true,
+							pagination: {
+								el: '.swiper-pagination',
+								clickable: true,
+							},
+							navigation: {
+								nextEl: '.swiper-button-next',
+								prevEl: '.swiper-button-prev',
+							},
+						});
 
-		anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
-		menu: '#menu',
+					}
 
-		afterLoad: function(anchorLink, index){
+					if(index == 3){
 
-			if(index == 2){
+						/*$('.section3').find('p').delay(100).animate({
 
-				$('.section2').find('p').delay(100).animate({
+							bottom: '0'
 
-					left: '0'
+						}, 1500, 'easeOutExpo');*/
+						$(".section3 .sec_02").find("li").animate({
+							top:'0',
+							opacity:'1'
+						},100,'easeOutExpo');
 
-				}, 1500, 'easeOutExpo');
+						$(".section3 .sec_03").find(".li_01").animate({
+							left:'0',
+						},1500,'easeOutExpo');
+						$(".section3 .sec_03").find(".li_02").fadeIn(2000);
+						$(".section3 .sec_03").find(".li_03").animate({
+							right:'0',
+						},1500,'easeOutExpo');
 
-			}
+					}
 
-			if(index == 3){
+					if(index == 4){
 
-				$('.section3').find('p').delay(100).animate({
+						$('.section4').find('p').fadeIn(2000);
 
-					bottom: '0'
+					}
 
-				}, 1500, 'easeOutExpo');
+				},
 
-			}
+				onLeave: function(index, direction){
+					if(index == '1'){
 
-			if(index == 4){
+						$('.section1').find('.footer').delay(100).animate({
 
-				$('.section4').find('p').fadeIn(2000);
+							bottom: '-120%'
 
-			}
+						}, 1000, 'easeOutExpo');
 
+					}
+
+
+					if(index == '2'){
+
+						/*$('.section2').find('p').delay(100).animate({
+
+							left: '-120%'
+
+						}, 1500, 'easeOutExpo');*/
+						$('.section2').find('.swiper-container2').fadeOut(100);
+
+					}
+
+					if(index == '3'){
+
+						/*$('.section3').find('p').delay(100).animate({
+
+							bottom: '-120%'
+
+						}, 1500, 'easeOutExpo');*/
+						$(".section3 .sec_02").find("li").animate({
+							top:'50px',
+							opacity:'0'
+						},10,'easeOutExpo')
+
+					}
+
+					if(index == '4'){
+
+						$('.section4').find('p').fadeOut(2000);
+
+					}
+
+				}
+
+			});
+
+	//轮播
+	var swiper = new Swiper('.swiper-container1', {
+		spaceBetween: 30,
+		centeredSlides: true,
+		loop: true,
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false,
 		},
-
-		onLeave: function(index, direction){
-
-			if(index == '2'){
-
-				$('.section2').find('p').delay(100).animate({
-
-					left: '-120%'
-
-				}, 1500, 'easeOutExpo');
-
-			}
-
-			if(index == '3'){
-
-				$('.section3').find('p').delay(100).animate({
-
-					bottom: '-120%'
-
-				}, 1500, 'easeOutExpo');
-
-			}
-
-			if(index == '4'){
-
-				$('.section4').find('p').fadeOut(2000);
-
-			}
-
-		}
-
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
 	});
+	
 
 });
 
@@ -126,91 +176,132 @@ $(document).ready(function() {
 <body>
 
 
-<!--菜单-->
-<ul id="menu">
+	<!--菜单-->
+	<ul id="menu" class="menu">
 
-	<li data-menuanchor="page1" class="active"><a href="#page1">第一屏</a></li>
+		<li data-menuanchor="page1" class="active"><a href="#page1">第一屏</a></li>
 
-	<li data-menuanchor="page2"><a href="#page2">第二屏</a></li>
+		<li data-menuanchor="page2"><a href="#page2">第二屏</a></li>
 
-	<li data-menuanchor="page3"><a href="#page3">第三屏</a></li>
+		<li data-menuanchor="page3"><a href="#page3">第三屏</a></li>
 
-	<li data-menuanchor="page4"><a href="#page4">第四屏</a></li>
+		<li data-menuanchor="page4"><a href="#page4">第四屏</a></li>
 
-</ul>
+	</ul>
 
-<!--section begin-->
-<div class="section section1">
-	 <!--header Begin-->
-                        <header class="header in_header cf">
-                            <div class="wrap cf">
-                                <div class="logo"><a href="javascript:void(0);" title=""><img src="assets/images/logo.png" onerror="lods(this)" /></a></div> 
-                                <nav class="menu f-18">
-                                    <ul>
-                                        <li class="on"><a href="/index.html">首页</a></li>
-                                        <li><a href="/about/index.html">健康管理服务</a>
-                                            <ul>
-                                                <li><a href="/about/index.html">健康管理服务</a></li>
-                                   
-                                            </ul>
-                                        </li>
-                                        <li><a href="/sics/index.html">影像管理平台</a>
-                                            <ul>
-                                                <li><a href="/sics/index.html">云胶片</a></li>
-                                                <li><a href="/sics/edu.html">云教育</a></li>
-                                                <li><a href="/sics/brand.html">云品牌</a></li>
-                                                <li><a href="/sics/diagnosis.html">云诊断</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="/case/index.html">解决方案</a>
-                                            <ul>
-                                                <li><a href="/case/index.html">单体医院</a></li>
-                                                <li><a href="/case/twins.html">医联体</a></li>
-                                                <li><a href="/case/area.html">区域平台</a></li>
-                                                <li><a href="/case/image.html">影像中心</a></li>
-                                                <li><a href="/case/mobile.html">移动体检</a></li>
-                                                <li><a href="/case/case.html">经典案例</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="http://edu.wlycloud.com/login" target="_blank">万里云影像学院</a></li>  
-                                    </ul>
-                                </nav>
-  
-                            </div>
+	<!--section begin-->
+	<div class="section section1">
+		<!--header Begin-->
+		<header class="header in_header cf">
+			<div class="wrap cf">
+				<div class="logo"><a href="javascript:void(0);" title=""><img src="assets/images/logo.png" onerror="lods(this)" /></a></div> 
+				<nav class="menu f-18">
+					<ul>
+						<li class="on"><a href="/index.html">首页</a></li>
+						<li><a href="/about/index.html">健康管理服务</a>
+							<ul>
+								<li><a href="/about/index.html">健康管理服务</a></li>
 
-                        </header>
-                        <!--header End-->
+							</ul>
+						</li>
+						<li><a href="/sics/index.html">影像管理平台</a>
+							<ul>
+								<li><a href="/sics/index.html">云胶片</a></li>
+								<li><a href="/sics/edu.html">云教育</a></li>
+								<li><a href="/sics/brand.html">云品牌</a></li>
+								<li><a href="/sics/diagnosis.html">云诊断</a></li>
+							</ul>
+						</li>
+						<li><a href="/case/index.html">解决方案</a>
+							<ul>
+								<li><a href="/case/index.html">单体医院</a></li>
+								<li><a href="/case/twins.html">医联体</a></li>
+								<li><a href="/case/area.html">区域平台</a></li>
+								<li><a href="/case/image.html">影像中心</a></li>
+								<li><a href="/case/mobile.html">移动体检</a></li>
+								<li><a href="/case/case.html">经典案例</a></li>
+							</ul>
+						</li>
+						<li><a href="http://edu.wlycloud.com/login" target="_blank">万里云影像学院</a></li>  
+					</ul>
+				</nav>
+
+			</div>
+
+		</header>
+		<!--header End-->
 
 
-	<h3>第一屏</h3>
+	<!--<h3>第一屏</h3>
 
-	<p>fullPage.js — 回调函数演示</p>
+		<p>fullPage.js — 回调函数演示</p>-->
+		<!-- Swiper -->
+		<div class="swiper-container swiper-container1">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide" style="background-image: url('http://www.wlycloud.com/Public/Upload/image/20180807/1533628888d8edea9de1cd321d.jpg');"></div>
+				<div class="swiper-slide" style="background-image: url('http://www.wlycloud.com/Public/Upload/image/20180807/153360959273f6be97af354db2.jpg');"></div>
+				<div class="swiper-slide" style="background-image:url('http://www.wlycloud.com/Public/Upload/image/20180725/1532509993e855b55d0d519d89.jpg');"></div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+		<!--swiper end-->
+		<!--section footer-->
+		<div class="footer">
+			<div><a href="#page2">我是医生</a></div>
+			<div><a href="#page3">我要找医生</a></div>
+			<div><a href="#page4">我是医疗机构</a></div>
+		</div>
 
-</div>
-<!--section end-->
-<div class="section section2">
+	</div>
+	<!--section end-->
+	<!--section start-->
+	<div class="section section2">
+		<!--<h3>第二屏</h3><p>滚动到第二屏后的回调函数执行的效果</p>-->
+		<!--轮播-->
+		<div class="swiper-container swiper-container2">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide" style="background-image: url('http://www.wlycloud.com/Public/Upload/image/20180807/1533628888d8edea9de1cd321d.jpg');"></div>
+				<div class="swiper-slide" style="background-image: url('http://www.wlycloud.com/Public/Upload/image/20180807/153360959273f6be97af354db2.jpg');"></div>
+				<div class="swiper-slide" style="background-image:url('http://www.wlycloud.com/Public/Upload/image/20180725/1532509993e855b55d0d519d89.jpg');"></div>
+			</div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
 
-	<h3>第二屏</h3>
+	</div>
+	<!--section end-->
+	<!--section start-->
+	<div class="section section3">
+		<!--<h3>第三屏</h3><p>滚动到第三屏后的回调函数执行的效果</p>-->
+		<div class="sec_02">
+			<ul class="flex-row">
+				<li class="li_01"><img src="assets/images/sec3_ico01.png"></li>
+				<li class="li_02"><img src="assets/images/sec3_ico02.png"></li>
+				<li class="li_03"><img src="assets/images/sec3_ico03.png"></li>
+			</ul>
+		</div>
+		<div class="sec_03">
+			<ul class="flex-row">
+				<li class="li_01"><img src="http://www.wlycloud.com/Public/Upload/image/20171022/1508667365e6e0b86f6f624ce1.jpg"></li>
+				<li class="li_02"><img src="http://www.wlycloud.com/Public/Upload/image/20171022/150866736569e73f5d63da951c.jpg"></li>
+				<li class="li_03"><img src="http://www.wlycloud.com/Public/Upload/image/20171022/1508667365b266d6037fa0f708.jpg"></li>
+			</ul>
+		</div>
+	</div>
+	<!--section end-->
 
-	<p>滚动到第二屏后的回调函数执行的效果</p>
+	<div class="section section4">
 
-</div>
+		<h3>第四屏</h3>
 
-<div class="section section3">
+		<p>滚动到第四屏后的回调函数执行的效果</p>
 
-	<h3>第三屏</h3>
-
-	<p>滚动到第三屏后的回调函数执行的效果</p>
-
-</div>
-
-<div class="section section4">
-
-	<h3>第四屏</h3>
-
-	<p>滚动到第四屏后的回调函数执行的效果</p>
-
-</div>
+	</div>
 
 
 

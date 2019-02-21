@@ -48,15 +48,24 @@ html{font-size: 28px;}
 html{font-size: 33px;}
 }
 
-ul{.
-	padding: 0;0.
+ul{
+	padding: 0;
+	margin: 0;
 }
 li{
 	list-style-type: none;
 } 
 a{
 	text-decoration: none;
+	color: inherit;
+}
+img{
+	border-style: none;
 }
 .f-18{
 	font-size: 18px;
+}
+.flex-row{
+	display: flex;
+	justify-content: space-between;
 }
