@@ -72,6 +72,7 @@
 .header .logo{
 	position: absolute;
 	left: 50px;
+	top: 10px;
 }
 .header a{
 	color: #000;
@@ -81,6 +82,7 @@
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
+	position: relative;
 }
 .header a:hover{
 	color: #3DBCF0
@@ -91,7 +93,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	padding: 0 20px;
+	padding: 15px 20px;
 }
 .menu>ul li ul{
 	display: none;
@@ -101,7 +103,12 @@
 .header .menu{
 	display: none;
 }
-} /*>=1024的设备*/
+} 
+@media (max-width: 990px){
+.menu>ul li{
+	padding: 15px 5px;
+}
+}
 /*第一屏*/
 .swiper-container1 {
       width: 100vw;
@@ -169,6 +176,7 @@
 .section3 .sec_03{
 	position: absolute;
 	bottom: 0;
+	width: 100%;
 }
 .section3 .sec_03 ul{
   width: 100%;
@@ -196,7 +204,7 @@
 	position: relative;
 	display: none;
 }
-/*
+
 .section3 .sec_03 .li_03{
 	position: relative;
 	right:-640px;
