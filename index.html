@@ -5,11 +5,14 @@
 <head>
 
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
 
 	<title>逸康网</title>
 
 	<link rel="stylesheet" href="css/jquery.fullPage.css">
 	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 
@@ -82,11 +85,11 @@
 
 						$(".section3 .sec_03").find(".li_01").animate({
 							left:'0',
-						},1500,'easeOutExpo');
-						$(".section3 .sec_03").find(".li_02").fadeIn(2000);
+						},500,'easeOutExpo');
+						$(".section3 .sec_03").find(".li_02").fadeIn(500);
 						$(".section3 .sec_03").find(".li_03").animate({
 							right:'0',
-						},1500,'easeOutExpo');
+						},500,'easeOutExpo');
 
 					}
 
@@ -135,11 +138,11 @@
 
 						$(".section3 .sec_03").find(".li_01").animate({
 							left:'-640px',
-						},1500,'easeOutExpo');
-						$(".section3 .sec_03").find(".li_02").fadeOut(2000);
+						},500,'easeOutExpo');
+						$(".section3 .sec_03").find(".li_02").fadeOut(500);
 						$(".section3 .sec_03").find(".li_03").animate({
 							right:'-640px',
-						},1500,'easeOutExpo');
+						},500,'easeOutExpo');
 
 					}
 
@@ -230,7 +233,7 @@
 								<li><a href="/case/case.html">经典案例</a></li>
 							</ul>
 						</li>
-						<li><a href="http://edu.wlycloud.com/login" target="_blank">万里云影像学院</a></li>  
+						<li><a href="about.html" target="_self">关于我们</a></li>  
 					</ul>
 				</nav>
 
@@ -246,9 +249,9 @@
 		<!-- Swiper -->
 		<div class="swiper-container swiper-container1">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide" style="background-image: url('http://www.wlycloud.com/Public/Upload/image/20180807/1533628888d8edea9de1cd321d.jpg');"></div>
-				<div class="swiper-slide" style="background-image: url('http://www.wlycloud.com/Public/Upload/image/20180807/153360959273f6be97af354db2.jpg');"></div>
-				<div class="swiper-slide" style="background-image:url('http://www.wlycloud.com/Public/Upload/image/20180725/1532509993e855b55d0d519d89.jpg');"></div>
+				<div class="swiper-slide" style="background-image: url('assets/images/section1_swiper1_img1.jpg');"></div>
+				<div class="swiper-slide" style="background-image: url('assets/images/section1_swiper1_img2.jpg');"></div>
+				<div class="swiper-slide" style="background-image:url('assets/images/section1_swiper1_img3.jpg');"></div>
 			</div>
 			<!-- Add Pagination -->
 			<div class="swiper-pagination"></div>
@@ -259,9 +262,11 @@
 		<!--swiper end-->
 		<!--section footer-->
 		<div class="footer">
-			<div><a href="#page2">我是医生</a></div>
-			<div><a href="#page3">我要找医生</a></div>
-			<div><a href="#page4">我是医疗机构</a></div>
+			<ul class="animated flipInX">
+				<li><a href="#page2"><img src="assets/images/sec01_icon01.png"></a></li>
+				<li><a href="#page3"><img src="assets/images/sec01_icon02.png"></a></li>
+				<li><a href="#page4"><img src="assets/images/sec01_icon03.png"></a></li>
+			</ul>
 		</div>
 
 	</div>
@@ -272,9 +277,9 @@
 		<!--轮播-->
 		<div class="swiper-container swiper-container2">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide" style="background-image: url('http://www.wlycloud.com/Public/Upload/image/20180807/1533628888d8edea9de1cd321d.jpg');"></div>
-				<div class="swiper-slide" style="background-image: url('http://www.wlycloud.com/Public/Upload/image/20180807/153360959273f6be97af354db2.jpg');"></div>
-				<div class="swiper-slide" style="background-image:url('http://www.wlycloud.com/Public/Upload/image/20180725/1532509993e855b55d0d519d89.jpg');"></div>
+				<div class="swiper-slide" style="background-color:#dbdcbd"></div>
+				<div class="swiper-slide" style="background-color:#fbdebe"></div>
+				<div class="swiper-slide" style="background-color:#ef949e"></div>
 			</div>
 			<!-- Add Arrows -->
 			<div class="swiper-button-next"></div>
@@ -303,14 +308,18 @@
 		</div>
 	</div>
 	<!--section end-->
-
+    <!--第四屏开始-->
 	<div class="section section4">
 
-		<h3>第四屏</h3>
-
-		<p>滚动到第四屏后的回调函数执行的效果</p>
+		<ul>
+			<li class="li_01"><div>01</div></li>
+			<li class="li_02"><div>02</div></li>
+			<li class="li_03"><div>03</div></li>
+			<li class="li_04"><div>04</div></li>
+		</ul>
 
 	</div>
+	<!--第四屏结束-->
 
 
 
